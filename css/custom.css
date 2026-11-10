@@ -1,0 +1,283 @@
+/* =========================================================
+ *  UI/UX 精修 —— 只做"可被证明有效"的改动
+ *  依据：行宽 65–75 字符、行高 1.5–1.75、对比度 ≥ 4.5:1、
+ *       焦点可见、尊重 prefers-reduced-motion
+ * ========================================================= */
+
+/* ---------- 1. 中文字体栈（比默认更稳，不额外请求网络字体）---------- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- 2. 长文阅读：字号 / 行高 / 行宽 ---------- */
+.markdown-body {
+  font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  /* 约 70 个汉字宽，超出会明显降低阅读舒适度 */
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markdown-body p {
+  margin: 0 0 1.15em;
+}
+
+/* 中文排版：段落首行不缩进，靠段间距区分 */
+.markdown-body p + p {
+  margin-top: 0;
+}
+
+/* ---------- 3. 标题层级：拉开与正文的差距 ---------- */
+.markdown-body h1 {
+  font-size: 1.75em;
+  line-height: 1.35;
+  margin: 2em 0 0.7em;
+}
+
+.markdown-body h2 {
+  font-size: 1.4em;
+  line-height: 1.4;
+  margin: 2.2em 0 0.75em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+}
+
+.markdown-body h3 {
+  font-size: 1.15em;
+  margin: 1.8em 0 0.6em;
+}
+
+/* 正文里第一块内容不要顶出大空白 */
+.markdown-body > :first-child {
+  margin-top: 0;
+}
+
+/* ---------- 4. 代码块：可读性与辨识度 ---------- */
+.markdown-body pre {
+  border-radius: 10px;
+  padding: 1em 1.15em;
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+.markdown-body :not(pre) > code {
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* ---------- 5. 引用块：用左侧色条代替大片背景 ---------- */
+.markdown-body blockquote {
+  margin: 1.6em 0;
+  padding: 0.4em 1.1em;
+  border-left: 3px solid #30a9de;
+  background: rgba(48, 169, 222, 0.06);
+  border-radius: 0 6px 6px 0;
+  color: inherit;
+}
+
+.markdown-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 6. 图片与表格 ---------- */
+.markdown-body img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-body table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 0.55em 0.8em;
+}
+
+/* ---------- 7. 列表 ---------- */
+.markdown-body li + li {
+  margin-top: 0.35em;
+}
+
+/* ---------- 8. 首页文章卡片：悬停只做极轻的提示 ----------
+ *  去掉位移和灰色阴影（太跳），只保留标题变色的过渡。
+ *  如果想要一点点反馈，把下面的注释打开即可。
+ * ------------------------------------------------------- */
+
+.index-card {
+  transition: background-color 0.28s ease;
+}
+
+.index-card .index-header .title {
+  transition: color 0.28s ease;
+}
+
+.index-card:hover .index-header .title {
+  color: #30a9de;
+}
+
+/* 想加回"轻微抬起"，取消注释这两条：
+.index-card:hover {
+  transform: translateY(-2px);
+}
+*/
+
+/* 系统开了"减少动态效果"就不做颜色渐变 */
+@media (prefers-reduced-motion: reduce) {
+  .index-card,
+  .index-card .index-header .title {
+    transition: none;
+  }
+}
+
+/* ---------- 9. 键盘可达性：可见焦点环 ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #30a9de;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ---------- 10. 移动端：触摸目标与间距 ---------- */
+@media (max-width: 767px) {
+  .markdown-body {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* 导航项至少 44px 高，避免误触 */
+  .navbar .nav-item .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ---------- 11. 尊重系统的"减少动态效果"设置 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .index-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+ *  12. Banner：壁纸双图层（背景城市 + 前景角色）
+ *  素材来自 Wallpaper Engine「洛天依 碎梦乌托邦」scene.pkg
+ *  由 tools/make_banner_we.py 提取生成
+ *
+ *  ⚠ 注意：不要改 .banner .mask 的 position —— 主题里它是
+ *    position: absolute + width/height 100%，标题靠它垂直居中。
+ *    改成 relative 会让它塌陷，标题会掉到导航栏里。
+ * ========================================================= */
+
+/* 角色层挂在 #banner 本身（.banner 已是 position: relative + overflow: hidden） */
+/* 原图底部是一大片云海，静态显示像"毛玻璃"，把取景往上移 */
+#banner {
+  background-position: center 30% !important;
+}
+
+#banner::after {
+  /* 壁纸自带的"玻璃罩"层与人物合在一张图里，去不掉；
+     想要人物时把下面这行改成 display: block */
+  display: none;
+  content: "";
+  position: absolute;
+  right: 1.5vw;
+  bottom: 0;
+  width: min(52vw, 880px);
+  height: 100%;
+  background: url("/img/banner-character.webp") no-repeat right bottom;
+  background-size: cover;
+  /* 外面那圈浅蓝是壁纸自带的"碎梦"玻璃层，无法干净剥离；
+     用同色系辉光把它包进去，看起来像光而不是白边 */
+  filter: brightness(0.94) saturate(1.06) drop-shadow(0 0 16px rgba(90, 170, 255, 0.5));
+  pointer-events: none;
+  z-index: 0;
+  animation: char-float 9s ease-in-out infinite alternate;
+}
+
+@keyframes char-float {
+  from {
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+/* 遮罩盖在角色之上：人物与城市被同一层压暗，边缘不再"发亮" */
+#banner .mask {
+  z-index: 1;
+}
+
+/* 标题压在角色之上：mask 没有 z-index，这里只要大于 1 即可 */
+#banner .banner-text {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  #banner::after {
+    width: 58vw;
+    right: -4vw;
+    opacity: 0.6;
+    background-size: contain;
+  }
+}
+
+/* =========================================================
+ *  13. 遮罩调淡后，用文字阴影保住标题可读性
+ *  （原来的 30% 黑蒙版把整张图压暗了 30%，这是"不透亮"的主因）
+ * ========================================================= */
+
+#banner .banner-text {
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.8),
+    0 0 4px rgba(0, 0, 0, 0.55);
+}
+
+#banner .scroll-down-bar i {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+}
+
+/* =========================================================
+ *  14. 首页文章摘要：只显示一行
+ *  主题默认把摘要框定成 3 行高（height: calc(1.4rem * 3)），
+ *  所以光加 line-clamp 还会留出两行空白，必须把外框高度一起改掉。
+ *  想显示两行：height 改 2.8rem，line-clamp 改 2
+ * ========================================================= */
+
+.index-excerpt {
+  height: 1.4rem;
+}
+
+.index-excerpt > div {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
