@@ -18,7 +18,7 @@
 
   // 访问量总开关：false = 一直显示 "-" 占位，不加载任何外部脚本
   // 部署到真实域名、想去掉占位时，把这里改成 true
-  var USE_REAL_COUNTER = false;
+  var USE_REAL_COUNTER = true;
 
   function pad(n) {
     return n < 10 ? '0' + n : '' + n;

@@ -281,3 +281,88 @@ textarea:focus-visible,
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* 关于页 QQ 二维码以图标右下角为起点展开。 */
+.about-icons .qr-trigger { display: inline-block; }
+.about-icons .qr-trigger > .icon-qq-fill + .qr-img {
+  top: 100%;
+  left: 100%;
+  right: auto;
+  bottom: auto;
+  margin: 0;
+  width: min(12rem, 30vw);
+  height: auto;
+}
+
+/* 文库与查找：沿用 Fluid 的色彩和卡片，增加内容导航。 */
+.collection-page { padding: 1.25rem 0; }
+.collection-tabs {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 1.5rem; padding-bottom: .75rem;
+  border-bottom: 1px solid var(--line-color, #eaecef);
+}
+.collection-tabs a {
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 44px; padding: .55rem 1.1rem; border-radius: 8px;
+  color: var(--text-color); text-decoration: none;
+}
+.collection-tabs a:hover, .collection-tabs a[aria-selected="true"] {
+  color: var(--link-hover-color, #30a9de); background: rgba(48,169,222,.1);
+}
+.collection-tabs a[aria-selected="true"] { box-shadow: inset 0 -2px currentColor; }
+.collection-tabs a span { font-size: .8rem; }
+.collection-page [hidden] { display: none !important; }
+.collection-intro, .collection-description { color: var(--sec-text-color); line-height: 1.8; }
+.collection-intro { margin-bottom: 1.75rem; }
+.collection-intro a { margin-left: .5rem; }
+.collection-card { margin-bottom: 2.25rem; }
+.collection-card .index-img img { object-fit: cover; }
+.collection-description {
+  margin: .85rem 0 1.15rem; overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+}
+.collection-meta { display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .85rem; color: var(--sec-text-color); }
+.collection-meta a { color: inherit; }
+.collection-meta a:hover { color: var(--link-hover-color); }
+.collection-status { color: var(--text-color); }
+.collection-empty { padding: 2.5rem 1rem; text-align: center; color: var(--sec-text-color); }
+.collection-back { display: inline-block; padding: .5rem 0; margin-bottom: 1rem; }
+.collection-heading { margin-bottom: 2rem; }
+.collection-heading h1 { font-size: 1.6rem; }
+.chapter-grid {
+  list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .5rem 1.5rem; margin: 0; padding: 0;
+}
+.chapter-grid a { display: flex; align-items: center; min-height: 48px; padding: .6rem .75rem; border-radius: 6px; overflow-wrap: anywhere; }
+.chapter-grid a:hover { background: rgba(48,169,222,.08); }
+.browse-group { margin-bottom: 1.25rem; }
+.browse-group summary {
+  cursor: pointer; padding: .8rem 1rem; min-height: 44px;
+  border-radius: 8px; background: rgba(127,127,127,.08); font-weight: 600;
+}
+.browse-group summary span { margin-left: .8rem; font-size: .8rem; font-weight: 400; color: var(--sec-text-color); }
+.browse-list { list-style: none; padding: .5rem 0; margin: 0; }
+.browse-list a { display: flex; justify-content: space-between; gap: 1rem; min-height: 44px; align-items: center; padding: .65rem 1rem; }
+.browse-list a span { min-width: 0; overflow-wrap: anywhere; }
+.browse-list time { flex-shrink: 0; font-size: .8rem; color: var(--sec-text-color); }
+.collection-return { margin-top: 2rem; font-size: .9rem; }
+@media (min-width: 992px) {
+  #search-btn { border-left: 1px solid rgba(255,255,255,.3); margin-left: .6rem; padding-left: .6rem; }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .chapter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .mobile-banner-fit #board { margin-top: 0 !important; }
+  header .header-inner[data-responsive-banner] {
+    height: calc(100vw / var(--banner-ratio)) !important;
+    max-height: none;
+  }
+  header .header-inner[data-responsive-banner] #banner { background-position: center !important; }
+  header .header-inner[data-responsive-banner] .banner-text { transform: translateY(22px); width: 90%; }
+  header .header-inner[data-responsive-banner] .scroll-down-bar { display: none; }
+  .chapter-grid { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+  .collection-card { margin-bottom: 1.75rem; }
+  .collection-tabs a { padding: .5rem .8rem; }
+  .collection-description { -webkit-line-clamp: 3; }
+}

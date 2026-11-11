@@ -124,21 +124,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
+              <a class="nav-link" href="/library/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
+                <span>文库</span>
               </a>
             </li>
           
@@ -148,9 +136,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
+              <a class="nav-link" href="/find/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>查找</span>
               </a>
             </li>
           
@@ -212,24 +200,10 @@
           
           
             <div class="col-4 mobile-grid-cell">
-              <a href="/archives/" target="_self">
-                <div class="mobile-grid-item">
-                  <i class="iconfont icon-archive-fill"></i>
-                  <span>归档</span>
-                </div>
-              </a>
-            </div>
-          
-        
-          
-          
-          
-          
-            <div class="col-4 mobile-grid-cell">
-              <a href="/categories/" target="_self">
+              <a href="/library/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-category-fill"></i>
-                  <span>分类</span>
+                  <span>文库</span>
                 </div>
               </a>
             </div>
@@ -240,10 +214,10 @@
           
           
             <div class="col-4 mobile-grid-cell">
-              <a href="/tags/" target="_self">
+              <a href="/find/" target="_self">
                 <div class="mobile-grid-item">
-                  <i class="iconfont icon-tags-fill"></i>
-                  <span>标签</span>
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>查找</span>
                 </div>
               </a>
             </div>
@@ -293,7 +267,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner-full.webp') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banners/archive.webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.12)">
       <div class="banner-text text-center fade-in-up">
@@ -331,81 +305,30 @@
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
-
-<h1 style="display: none">Tianyou_Time的个人博客</h1>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2026/11/10/hello-world/" target="_self">
-          <img src="/img/thumbs/hello-world.webp" srcset="/img/loading.gif" lazyload alt="你好，世界">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2026/11/10/hello-world/" target="_self">
-          你好，世界
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2026/11/10/hello-world/" target="_self">
-        <div>
-          这是这个博客的第一篇文章。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-11-10 09:00" pubdate>
-              2026-11-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
+<section class="collection-page" data-page-kind="home" aria-label="首页精选">
+  <h1 class="sr-only">Tianyou_Time的个人博客</h1>
   
   
     
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E6%B4%BB/" class="category-chain-item">生活</a>
+<article class="row mx-auto index-card collection-card">
   
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a>
-            
-              <a href="/tags/%E5%BB%BA%E7%AB%99/">#建站</a>
-            
-          </div>
-        
-      </div>
-    </article>
+  <div class="col-12 col-md-4 m-auto index-img">
+    <a href="/2026/11/10/hello-world/" tabindex="-1" aria-hidden="true"><img src="/img/thumbs/hello-world.webp" srcset="/img/loading.gif" lazyload alt="" loading="lazy" width="640" height="400"></a>
   </div>
+  
+  <div class="col-12 col-md-8 mx-auto index-info">
+    <h2 class="index-header"><a href="/2026/11/10/hello-world/">你好，世界</a></h2>
+    <p class="collection-description">这是这个博客的第一篇文章。</p>
+    <div class="collection-meta">
+      <time datetime="2026-11-10">2026-11-10</time>
+      <a href="/find/#categories">杂文</a>
+      <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a><a href="/tags/%E5%BB%BA%E7%AB%99/">#建站</a>
+    </div>
+  </div>
+</article>
 
-
-
-
+  
+</section>
 
               </div>
             </div>
@@ -517,6 +440,7 @@
 <script src="/js/rain.js"></script>
 <script src="/js/footer-stats.js"></script>
 <script src="/js/time-banner.js"></script>
+<script src="/js/library.js"></script>
 
 
 

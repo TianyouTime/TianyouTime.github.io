@@ -15,9 +15,8 @@
     var banner = document.getElementById('banner');
     if (!banner) return;
 
-    // 只在首页下雨：首页独有的结构是 .index-card
-    // （用页面特征判断，比硬编码路径更稳，换域名/子目录都不受影响）
-    if (!document.querySelector('.index-card')) return;
+    // 文库也使用文章卡片，以明确的页面标记限定雨效只在首页。
+    if (!document.querySelector('[data-page-kind="home"]')) return;
 
     var canvas = document.createElement('canvas');
     canvas.id = 'banner-rain';
