@@ -346,6 +346,47 @@ textarea:focus-visible,
 .browse-list a span { min-width: 0; overflow-wrap: anywhere; }
 .browse-list time { flex-shrink: 0; font-size: .8rem; color: var(--sec-text-color); }
 .collection-return { margin-top: 2rem; font-size: .9rem; }
+
+/* 窄屏展开导航：半透明面板，菜单和工具入口单列居中。 */
+@media (max-width: 991.98px) {
+  #mobile-grid-menu {
+    bottom: auto;
+    height: auto;
+    max-height: 100vh;
+    max-height: 100dvh;
+    visibility: hidden;
+    background: rgba(40, 56, 73, .88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  }
+  #mobile-grid-menu.show { visibility: visible; }
+  #mobile-grid-menu .mobile-grid-menu-inner { padding: 72px 0 16px; }
+  #mobile-grid-menu .row { flex-direction: column; align-items: center; margin: 0; }
+  #mobile-grid-menu .mobile-grid-cell { flex: 0 0 auto; width: 100%; max-width: 100%; padding: 0; }
+  #mobile-grid-menu .mobile-grid-cell > a { display: block; width: fit-content; margin: 0 auto; }
+  #mobile-grid-menu .mobile-grid-item {
+    flex-direction: row;
+    gap: .45rem;
+    min-height: 36px;
+    padding: .375rem .85rem;
+    background: transparent;
+    border-radius: 6px;
+    transform: none;
+  }
+  #mobile-grid-menu .mobile-grid-item:hover,
+  #mobile-grid-menu .mobile-grid-item:active { background: rgba(255,255,255,.08); transform: none; }
+  #mobile-grid-menu .mobile-grid-item i { margin: 0; font-size: .875rem; color: #fff; }
+  #mobile-grid-menu .mobile-grid-item span { font-size: .875rem; line-height: 1.5; color: #fff; }
+  #mobile-search-btn .mobile-grid-item span,
+  #mobile-color-toggle-btn .mobile-grid-item span { display: none; }
+  #mobile-grid-menu .mobile-grid-group-header { text-align: center; color: #fff; }
+  body.mobile-menu-open #navbar { background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  body.mobile-menu-open #navbar .navbar-brand { color: #fff; }
+  body.mobile-menu-open #navbar .animated-icon span { background-color: #fff; }
+  #navbar-toggler-btn { min-width: 44px; min-height: 44px; }
+}
+
 @media (min-width: 992px) {
   #search-btn { border-left: 1px solid rgba(255,255,255,.3); margin-left: .6rem; padding-left: .6rem; }
 }
