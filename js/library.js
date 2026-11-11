@@ -13,10 +13,13 @@
       panels.forEach(function (panel) {
         panel.setAttribute('role', 'tabpanel');
         panel.setAttribute('aria-labelledby', 'tab-' + group.dataset.tabGroup + '-' + panel.dataset.panel);
-        panel.tabIndex = 0;
       });
       function activate() {
-        var key = location.hash.slice(1);
+        var fragment = location.hash.slice(1).split('/');
+        var key = fragment[0];
+        var name;
+        try { name = fragment.length > 1 ? decodeURIComponent(fragment.slice(1).join('/')) : null; }
+        catch (error) { name = null; }
         if (!tabs.some(function (tab) { return tab.dataset.tab === key; })) key = group.dataset.defaultTab;
         tabs.forEach(function (tab) {
           var selected = tab.dataset.tab === key;
@@ -24,6 +27,19 @@
           tab.tabIndex = selected ? 0 : -1;
         });
         panels.forEach(function (panel) { panel.hidden = panel.dataset.panel !== key; });
+        if (group.dataset.tabGroup === 'find') {
+          panels.forEach(function (panel) {
+            panel.querySelectorAll('[data-group-name]').forEach(function (section) {
+              var target = panel.dataset.panel === key && section.dataset.groupName === name;
+              section.open = panel.dataset.panel === 'tags' ? target : true;
+              if (target) {
+                var summary = section.querySelector('summary');
+                summary.focus({ preventScroll: true });
+                section.scrollIntoView({ block: 'center' });
+              }
+            });
+          });
+        }
       }
       tabs.forEach(function (tab, index) {
         tab.addEventListener('click', function (event) {
