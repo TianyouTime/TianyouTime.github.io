@@ -14,7 +14,7 @@
       var period = hour >= 6 && hour < 17 ? 'day' : hour >= 17 && hour < 19 ? 'dusk' : 'night';
       if (period === previous) return;
       previous = period;
-      var image = page ? page.getAttribute('data-banner-' + period) : prefix + 'img/banners/tag-' + period + '.webp';
+      var image = page ? page.getAttribute('data-banner-' + period) : prefix + 'img/find-' + period + '.webp';
       banner.style.backgroundImage = 'url("' + image + '")';
       banner.dispatchEvent(new Event('bannerchange'));
     }
