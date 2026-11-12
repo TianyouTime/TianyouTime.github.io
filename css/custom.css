@@ -295,6 +295,7 @@ textarea:focus-visible,
 }
 
 /* 文库与查找：沿用 Fluid 的色彩和卡片，增加内容导航。 */
+.mobile-hero-image { display: none; }
 .collection-page { padding: 1.25rem 0; }
 .collection-tabs {
   display: flex; flex-wrap: wrap; gap: .5rem;
@@ -406,4 +407,53 @@ textarea:focus-visible,
   .collection-card { margin-bottom: 1.75rem; }
   .collection-tabs a { padding: .5rem .8rem; }
   .collection-description { -webkit-line-clamp: 3; }
+
+  /* 首页、关于页使用竖屏首屏布局，其他页面仍按横图比例显示。 */
+  header .header-inner[data-hero-kind] {
+    position: relative;
+    max-height: none;
+  }
+  header .header-inner[data-hero-kind="home"] {
+    height: 100vh !important;
+    height: 100svh !important;
+  }
+  header .header-inner[data-hero-kind="about"] {
+    height: 80vh !important;
+    height: 80svh !important;
+  }
+  header .header-inner[data-hero-kind] .mobile-hero-image {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  header .header-inner[data-hero-kind="home"] .mobile-hero-image { object-position: 85% center; }
+  header .header-inner[data-hero-kind="about"] .mobile-hero-image { object-position: 77% center; }
+  header .header-inner[data-hero-kind] #banner {
+    background-image: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+  header .header-inner[data-hero-kind] #banner .banner-text { width: 90%; }
+  body[data-hero-kind="home"] #board { margin-top: 0 !important; }
+  body[data-hero-kind="home"] #banner .scroll-down-bar {
+    display: block;
+    bottom: env(safe-area-inset-bottom, 0px);
+  }
+  body[data-hero-kind="about"] #banner .scroll-down-bar { display: none; }
+  body[data-hero-kind="about"] #board {
+    margin-top: 0 !important;
+    padding-top: 0;
+    padding-bottom: 2rem;
+    overflow: visible;
+  }
+  body[data-hero-kind="about"] .about-avatar {
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto -4rem;
+    transform: translateY(-50%);
+  }
 }

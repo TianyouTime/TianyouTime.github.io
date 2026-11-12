@@ -64,7 +64,7 @@
       activate();
     });
     var banner = document.getElementById('banner');
-    if (banner) {
+    if (banner && !document.querySelector('.mobile-hero-image')) {
       var request = 0;
       function sizeBanner() {
         var match = banner.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/);

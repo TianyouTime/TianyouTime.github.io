@@ -89,8 +89,8 @@
 
   <header>
     
-
-<div class="header-inner" style="height: 100vh;">
+<script>document.body.setAttribute('data-hero-kind', "home");</script>
+<div class="header-inner" data-hero-kind="home" style="height: 100vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -264,6 +264,7 @@
   </div>
 </div>
 
+  <img class="mobile-hero-image" data-no-lazyload src="/img/banners/archive.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" width="1920" height="1080">
   
 
 <div id="banner" class="banner" parallax=true
@@ -292,6 +293,7 @@
 
 
 </div>
+
 
   </header>
 
