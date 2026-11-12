@@ -312,47 +312,72 @@
  data-banner-day="/img/find-day.webp" data-banner-dusk="/img/find-dusk.webp" data-banner-night="/img/find-night.webp">
   <h1 class="sr-only">查找</h1>
   <nav class="collection-tabs" aria-label="查找方式">
-    <a href="#categories" data-tab="categories">按分类</a><a href="#time" data-tab="time">按时间</a><a href="#tags" data-tab="tags">按标签</a>
+    <a href="#categories" data-tab="categories">分类</a><a href="#time" data-tab="time">归档</a><a href="#tags" data-tab="tags">标签</a>
   </nav>
-  
   <section id="categories" data-panel="categories" aria-label="按分类查找">
     <p class="collection-intro">全部1篇文章。</p>
     
     
-    <details class="browse-group" data-group-name="杂文" open>
+    <details class="browse-group" data-group-name="杂文">
       <summary>杂文<span>1 篇</span></summary>
       <ul class="browse-list"><li><a href="/2026/11/10/hello-world/"><span>你好，世界</span><time datetime="2026-11-10">2026-11-10</time></a></li></ul>
     </details>
     
   </section>
-  
   <section id="time" data-panel="time" aria-label="按时间查找">
     <p class="collection-intro">全部1篇文章。</p>
     
-    
-    <details class="browse-group" data-group-name="2026 年 11 月" open>
-      <summary>2026 年 11 月<span>1 篇</span></summary>
-      <ul class="browse-list"><li><a href="/2026/11/10/hello-world/"><span>你好，世界</span><time datetime="2026-11-10">2026-11-10</time></a></li></ul>
-    </details>
-    
-  </section>
+    <div class="find-chronology">
+      
+      <section class="find-year">
+        <h2>2026</h2>
+        
+        <div data-group-name="2026 年 11 月">
+<ul class="find-post-list">
   
+  <li><a href="/2026/11/10/hello-world/"><time datetime="2026-11-10">11-10</time><span>你好，世界</span></a></li>
+  
+</ul>
+</div>
+        
+      </section>
+      
+    </div>
+  </section>
   <section id="tags" data-panel="tags" aria-label="按标签查找">
     <p class="collection-intro">全部1篇文章。</p>
     
+    <nav class="find-tag-cloud" aria-label="按标签查找">
+      
+      <a href="#tags/%E9%9A%8F%E7%AC%94" data-tag-link="随笔" style="font-size:16px;--tag-color:hsl(216, 35%, 45%);--tag-dark-color:hsl(210, 65%, 78%)">随笔</a>
+      
+      <a href="#tags/%E5%BB%BA%E7%AB%99" data-tag-link="建站" style="font-size:16px;--tag-color:hsl(216, 35%, 45%);--tag-dark-color:hsl(210, 65%, 78%)">建站</a>
+      
+    </nav>
     
-    <details class="browse-group" data-group-name="随笔">
-      <summary>随笔<span>1 篇</span></summary>
-      <ul class="browse-list"><li><a href="/2026/11/10/hello-world/"><span>你好，世界</span><time datetime="2026-11-10">2026-11-10</time></a></li></ul>
-    </details>
+    <section class="find-tag-results" data-tag-result data-group-name="随笔">
+      <h2>随笔<span>1 篇</span></h2>
+      
+<ul class="find-post-list">
+  
+  <li><a href="/2026/11/10/hello-world/"><time datetime="2026-11-10">2026-11-10</time><span>你好，世界</span></a></li>
+  
+</ul>
+
+    </section>
     
-    <details class="browse-group" data-group-name="建站">
-      <summary>建站<span>1 篇</span></summary>
-      <ul class="browse-list"><li><a href="/2026/11/10/hello-world/"><span>你好，世界</span><time datetime="2026-11-10">2026-11-10</time></a></li></ul>
-    </details>
+    <section class="find-tag-results" data-tag-result data-group-name="建站">
+      <h2>建站<span>1 篇</span></h2>
+      
+<ul class="find-post-list">
+  
+  <li><a href="/2026/11/10/hello-world/"><time datetime="2026-11-10">2026-11-10</time><span>你好，世界</span></a></li>
+  
+</ul>
+
+    </section>
     
   </section>
-  
 </section>
 
               </div>

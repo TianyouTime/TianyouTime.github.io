@@ -347,6 +347,21 @@ textarea:focus-visible,
 .browse-list a span { min-width: 0; overflow-wrap: anywhere; }
 .browse-list time { flex-shrink: 0; font-size: .8rem; color: var(--sec-text-color); }
 .collection-return { margin-top: 2rem; font-size: .9rem; }
+.find-chronology { border-top: 1px solid var(--line-color, #eaecef); padding-top: 1rem; }
+.find-year { margin: 0 0 1.5rem; }
+.find-year h2, .find-tag-results h2 { font-size: 1.2rem; font-weight: 500; margin: 1rem 0 .5rem; }
+.find-post-list { list-style: none; margin: 0; padding: 0; }
+.find-post-list a { display: flex; align-items: baseline; gap: 1rem; min-height: 44px; padding: .65rem .75rem; border-radius: 6px; }
+.find-post-list a:hover { background: var(--link-hover-bg-color, rgba(48,169,222,.08)); }
+.find-post-list time { flex: 0 0 6rem; font-size: .85rem; color: var(--sec-text-color); }
+.find-chronology .find-post-list time { flex-basis: 3.25rem; }
+.find-post-list a > span { min-width: 0; overflow-wrap: anywhere; }
+.find-tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .3rem 1rem; padding: 1rem 0 1.5rem; }
+.find-tag-cloud a { display: inline-flex; align-items: center; min-height: 44px; color: var(--tag-color); line-height: 1.5; padding: .25rem .35rem; overflow-wrap: anywhere; max-width: 100%; }
+.find-tag-cloud a:hover, .find-tag-cloud a[aria-current="true"] { text-decoration: underline; text-underline-offset: .25em; }
+[data-user-color-scheme="dark"] .find-tag-cloud a { color: var(--tag-dark-color); }
+.find-tag-results { border-top: 1px solid var(--line-color, #eaecef); padding-top: .5rem; }
+.find-tag-results h2 span { margin-left: .8rem; font-size: .8rem; color: var(--sec-text-color); font-weight: 400; }
 
 /* 窄屏展开导航：半透明面板，菜单和工具入口单列居中。 */
 @media (max-width: 991.98px) {

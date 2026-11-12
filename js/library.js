@@ -31,12 +31,17 @@
           panels.forEach(function (panel) {
             panel.querySelectorAll('[data-group-name]').forEach(function (section) {
               var target = panel.dataset.panel === key && section.dataset.groupName === name;
-              section.open = panel.dataset.panel === 'tags' ? target : true;
+              if (section.tagName === 'DETAILS') section.open = target;
+              if (panel.dataset.panel === 'tags') section.hidden = !target;
               if (target) {
-                var summary = section.querySelector('summary');
-                summary.focus({ preventScroll: true });
+                var focusTarget = section.querySelector('summary') || section.querySelector('a[href]');
+                if (focusTarget) focusTarget.focus({ preventScroll: true });
                 section.scrollIntoView({ block: 'center' });
               }
+            });
+            panel.querySelectorAll('[data-tag-link]').forEach(function (link) {
+              if (key === 'tags' && link.dataset.tagLink === name) link.setAttribute('aria-current', 'true');
+              else link.removeAttribute('aria-current');
             });
           });
         }
