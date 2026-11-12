@@ -418,8 +418,8 @@ textarea:focus-visible,
     height: 100svh !important;
   }
   header .header-inner[data-hero-kind="about"] {
-    height: 80vh !important;
-    height: 80svh !important;
+    height: 50vh !important;
+    height: 50svh !important;
   }
   header .header-inner[data-hero-kind] .mobile-hero-image {
     display: block;
@@ -433,10 +433,10 @@ textarea:focus-visible,
   header .header-inner[data-hero-kind="home"] .mobile-hero-image { object-position: 85% center; }
   header .header-inner[data-hero-kind="about"] .mobile-hero-image { object-position: 77% center; }
   header .header-inner[data-hero-kind] #banner {
-    background-image: none !important;
     transform: none !important;
     will-change: auto;
   }
+  header .header-inner[data-hero-loaded] #banner { background-image: none !important; }
   header .header-inner[data-hero-kind] #banner .banner-text { width: 90%; }
   body[data-hero-kind="home"] #board { margin-top: 0 !important; }
   body[data-hero-kind="home"] #banner .scroll-down-bar {
@@ -456,4 +456,11 @@ textarea:focus-visible,
     margin: 0 auto -4rem;
     transform: translateY(-50%);
   }
+  body[data-hero-kind="about"] .about-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+  }
+  body[data-hero-kind="about"] .about-icons > a { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; margin-right: 0; }
 }

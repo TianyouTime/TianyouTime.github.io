@@ -64,7 +64,15 @@
       activate();
     });
     var banner = document.getElementById('banner');
-    if (banner && !document.querySelector('.mobile-hero-image')) {
+    var mobileHero = banner && document.querySelector('.mobile-hero-image');
+    if (mobileHero) {
+      function showMobileHero() {
+        if (mobileHero.naturalWidth > 0) mobileHero.closest('.header-inner').setAttribute('data-hero-loaded', '');
+      }
+      mobileHero.addEventListener('load', showMobileHero);
+      if (mobileHero.complete) showMobileHero();
+    }
+    if (banner && !mobileHero) {
       var request = 0;
       function sizeBanner() {
         var match = banner.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
